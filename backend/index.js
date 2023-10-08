@@ -3,7 +3,7 @@ import { PORT, mongoDBURL } from './config.js'
 import mongoose from 'mongoose'
 import booksRoute from './routes/booksRoute.js'
 import cors from 'cors'
-
+import dotenv from 'dotenv'
 const app = express()
 
 // Middleware for parsing request body
@@ -11,6 +11,9 @@ app.use(express.json())
 
 // Allow all origins with default of cors(*)
 app.use(cors())
+
+// Allow use of env variables
+dotenv.config()
 
 // // // Allow custom origins
 // app.use(
