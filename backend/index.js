@@ -32,12 +32,12 @@ app.get('/', (req, res) => {
 app.use('/books', booksRoute)
 
 mongoose
-  .connect(mongoDBURL)
+  .connect(process.env.mongoDBURL)
   .then(() => {
     console.log('App connected to database.')
 
     app.listen(PORT, () => {
-      console.log(`App is listening to port: ${PORT}`)
+      console.log(`App is listening to port: ${process.env.PORT}`)
     })
   })
   .catch((error) => {
